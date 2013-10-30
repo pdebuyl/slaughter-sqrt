@@ -12,8 +12,6 @@
 FetchModule "GitHub.pm";
 
 
-print $fqdn . "\n";
-
 #
 #  Ensure slaughter runs on each node once an hour.
 #
