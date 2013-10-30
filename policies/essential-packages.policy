@@ -1,0 +1,28 @@
+#
+#  Ensure we have "essential" packages installed.
+#
+
+foreach my $package (qw! bash curl sash telnet netcat6 lsb-base lsb-release vim !)
+{
+    if ( !PackageInstalled( Package => $package ) )
+    {
+        InstallPackage( Package => $package );
+    }
+}
+
+
+#
+#  Remove these annoyances.
+#
+foreach my $package (qw! aptitude aptitude-common isc-dhcp-client isc-dhcp-common tasksel tasksel-data vim-tiny  !)
+{
+    if ( PackageInstalled( Package => $package ) )
+    {
+        RemovePackage( Package => $package );
+    }
+}
+
+
+# Local Variables:
+# mode: cperl
+# End:

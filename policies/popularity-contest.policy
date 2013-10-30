@@ -1,0 +1,29 @@
+#
+#  Take part in Debina's popularity contest
+#
+
+
+#
+#  Install the package.
+#
+if ( !PackageInstalled( Package => "popularity-contest" ) )
+{
+    InstallPackage( Package => "popularity-contest" );
+}
+
+#
+#  Ensure we're enabled.
+#
+my $conf = "/etc/popularity-contest.conf";
+if ( -e $conf )
+{
+    AppendIfMissing( File => $conf,
+                     Line => "PARTICIPATE=\"yes\"" );
+    AppendIfMissing( File => $conf,
+                     Line => "USEHTTP=\"yes\"" );
+}
+
+
+# Local Variables:
+# mode: cperl
+# End:

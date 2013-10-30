@@ -1,0 +1,47 @@
+###
+# The master "default.policy" file.
+#
+# This file is requested by each managed client, whenever slaughter runs.
+# This file is based on Steve Kemp's github.com:skx/laughter-policies/policies/default.policy 
+##
+###
+
+##
+## Modules we use.
+##
+FetchModule "GitHub.pm";
+
+
+#
+#  Ensure slaughter runs on each node once an hour.
+#
+FetchPolicy "slaughter.policy";
+
+
+#
+#  Install packages we like/need/value
+#
+FetchPolicy "essential-packages.policy";
+
+
+#
+# We want to share stats.
+#
+FetchPolicy "popularity-contest.policy";
+
+
+#
+# Host-specific policy?
+#
+FetchPolicy "hosts/$fqdn.policy";
+
+#
+# Role-specific policy?
+#
+FetchPolicy "roles/$role.policy";
+
+
+
+# Local Variables:
+# mode: cperl
+# End:
