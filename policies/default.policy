@@ -33,6 +33,7 @@ FetchPolicy "popularity-contest.policy";
 #
 # Host-specific policy?
 #
+FetchPolicy "hosts/$hostname.policy";
 FetchPolicy "hosts/$fqdn.policy";
 
 #
